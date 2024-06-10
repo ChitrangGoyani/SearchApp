@@ -1,0 +1,72 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model fake_education {
+  school     String?
+  degree     String?
+  city       String?
+  state      String?
+  startMonth String?
+  startYear  Int?
+  endMonth   String?
+  endYear    Int?
+  current    Boolean?
+  createdAt  String?
+  updatedAt  String?
+  userId     Int?
+  id         Int      @id @default(autoincrement())
+}
+
+model fake_experience {
+  title           String?
+  company         String?
+  city            String?
+  state           String?
+  startMonth      String?
+  startYear       Int?
+  endMonth        String?
+  endYear         String?
+  currentPosition Boolean?
+  description     String?
+  createdAt       String?
+  updatedAt       String?
+  userId          Int?
+  id              Int      @id @default(autoincrement())
+}
+
+model fake_profiles {
+  firstName       String?
+  lastName        String?
+  email           String?
+  phone           String?
+  address         String?
+  location        String?
+  desiredPosition String?
+  jobStatus       String?
+  createdAt       String?
+  updatedAt       String?
+  userId          Int?
+  id              Int     @id @default(autoincrement())
+}
+
+model fake_skills {
+  name      String?
+  createdAt String?
+  updatedAt String?
+  userId    Int?
+  id        Int     @id @default(autoincrement())
+}
+
+model fake_users {
+  id             Int     @id
+  email          String?
+  hashedPassword String?
+  salt           String?
+  roles          String?
+}
